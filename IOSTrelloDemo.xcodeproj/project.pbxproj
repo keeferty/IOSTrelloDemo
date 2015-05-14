@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1B41334BFB27471F11B8E725 /* libPods-IOSTrelloDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */; };
+		1B50A0445169FEFB44CF2626 /* libPods-IOSTrelloDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0109A8DEE3B01CC98664C465 /* libPods-IOSTrelloDemo.a */; };
+		9237A0921B04986500C27B1D /* PWWSManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237A0911B04986500C27B1D /* PWWSManagerSpec.m */; };
+		9237A0971B0498CD00C27B1D /* PWWSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237A0961B0498CD00C27B1D /* PWWSManager.m */; };
+		92573A8B1B04B3CC0004875F /* PWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A8A1B04B3CC0004875F /* PWViewController.m */; };
+		92573A911B04C2780004875F /* PWDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A901B04C2780004875F /* PWDataManager.m */; };
+		92573A931B04C29C0004875F /* PWDataManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A921B04C29C0004875F /* PWDataManagerSpec.m */; };
 		92E5D46B1B0491F2005A4D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46A1B0491F2005A4D0D /* main.m */; };
 		92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46D1B0491F2005A4D0D /* AppDelegate.m */; };
 		92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4721B0491F2005A4D0D /* Main.storyboard */; };
 		92E5D4761B0491F2005A4D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4751B0491F2005A4D0D /* Images.xcassets */; };
 		92E5D4791B0491F2005A4D0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4771B0491F2005A4D0D /* LaunchScreen.xib */; };
-		92E5D4851B0491F2005A4D0D /* IOSTrelloDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D4841B0491F2005A4D0D /* IOSTrelloDemoTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +32,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0109A8DEE3B01CC98664C465 /* libPods-IOSTrelloDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSTrelloDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BCED993224F93CA8A68122E /* Pods-IOSTrelloDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8ED6A489C7CA15858A790602 /* Pods-IOSTrelloDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		9237A0911B04986500C27B1D /* PWWSManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWWSManagerSpec.m; sourceTree = "<group>"; };
+		9237A0951B0498CD00C27B1D /* PWWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWWSManager.h; sourceTree = "<group>"; };
+		9237A0961B0498CD00C27B1D /* PWWSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWWSManager.m; sourceTree = "<group>"; };
+		92573A891B04B3CC0004875F /* PWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWViewController.h; sourceTree = "<group>"; };
+		92573A8A1B04B3CC0004875F /* PWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWViewController.m; sourceTree = "<group>"; };
+		92573A8F1B04C2780004875F /* PWDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDataManager.h; sourceTree = "<group>"; };
+		92573A901B04C2780004875F /* PWDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDataManager.m; sourceTree = "<group>"; };
+		92573A921B04C29C0004875F /* PWDataManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDataManagerSpec.m; sourceTree = "<group>"; };
 		92E5D4651B0491F2005A4D0D /* IOSTrelloDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTrelloDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4691B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D46A1B0491F2005A4D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -39,8 +53,9 @@
 		92E5D4781B0491F2005A4D0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		92E5D47E1B0491F2005A4D0D /* IOSTrelloDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSTrelloDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4831B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92E5D4841B0491F2005A4D0D /* IOSTrelloDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTrelloDemoTests.m; sourceTree = "<group>"; };
 		92E5D48E1B04929C005A4D0D /* IOSTrelloDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSTrelloDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B3E0FAB04ABCFDCA81A613BA /* Pods-IOSTrelloDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemo/Pods-IOSTrelloDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C7CAAB7248CD5DE43F285271 /* Pods-IOSTrelloDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemo/Pods-IOSTrelloDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSTrelloDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -49,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B50A0445169FEFB44CF2626 /* libPods-IOSTrelloDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +79,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9237A0931B0498B600C27B1D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9237A0941B0498B600C27B1D /* Communication */,
+				92573A8F1B04C2780004875F /* PWDataManager.h */,
+				92573A901B04C2780004875F /* PWDataManager.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9237A0941B0498B600C27B1D /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				9237A0951B0498CD00C27B1D /* PWWSManager.h */,
+				9237A0961B0498CD00C27B1D /* PWWSManager.m */,
+			);
+			path = Communication;
+			sourceTree = "<group>";
+		};
 		92E5D45C1B0491F2005A4D0D = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +121,7 @@
 		92E5D4671B0491F2005A4D0D /* IOSTrelloDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9237A0931B0498B600C27B1D /* Model */,
 				92E5D4681B0491F2005A4D0D /* Supporting Files */,
 			);
 			path = IOSTrelloDemo;
@@ -96,6 +132,8 @@
 			children = (
 				92E5D46C1B0491F2005A4D0D /* AppDelegate.h */,
 				92E5D46D1B0491F2005A4D0D /* AppDelegate.m */,
+				92573A891B04B3CC0004875F /* PWViewController.h */,
+				92573A8A1B04B3CC0004875F /* PWViewController.m */,
 				92E5D4721B0491F2005A4D0D /* Main.storyboard */,
 				92E5D4751B0491F2005A4D0D /* Images.xcassets */,
 				92E5D4771B0491F2005A4D0D /* LaunchScreen.xib */,
@@ -109,8 +147,9 @@
 		92E5D4811B0491F2005A4D0D /* IOSTrelloDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				92E5D4841B0491F2005A4D0D /* IOSTrelloDemoTests.m */,
 				92E5D4821B0491F2005A4D0D /* Supporting Files */,
+				9237A0911B04986500C27B1D /* PWWSManagerSpec.m */,
+				92573A921B04C29C0004875F /* PWDataManagerSpec.m */,
 			);
 			path = IOSTrelloDemoTests;
 			sourceTree = "<group>";
@@ -127,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */,
+				0109A8DEE3B01CC98664C465 /* libPods-IOSTrelloDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +176,8 @@
 			children = (
 				1BCED993224F93CA8A68122E /* Pods-IOSTrelloDemoTests.debug.xcconfig */,
 				8ED6A489C7CA15858A790602 /* Pods-IOSTrelloDemoTests.release.xcconfig */,
+				B3E0FAB04ABCFDCA81A613BA /* Pods-IOSTrelloDemo.debug.xcconfig */,
+				C7CAAB7248CD5DE43F285271 /* Pods-IOSTrelloDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -147,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E5D4881B0491F2005A4D0D /* Build configuration list for PBXNativeTarget "IOSTrelloDemo" */;
 			buildPhases = (
+				3F43CA2BD8FCE2D7ABB61A74 /* Check Pods Manifest.lock */,
 				92E5D4611B0491F2005A4D0D /* Sources */,
 				92E5D4621B0491F2005A4D0D /* Frameworks */,
 				92E5D4631B0491F2005A4D0D /* Resources */,
+				10E4D5B83204FF3AA86C2A05 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -239,6 +283,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		10E4D5B83204FF3AA86C2A05 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSTrelloDemo/Pods-IOSTrelloDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3ACB321DAC0D330CC99A9D2B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +311,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F43CA2BD8FCE2D7ABB61A74 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5BA0D0FE7B597E87A18E8646 /* Check Pods Manifest.lock */ = {
@@ -277,7 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */,
+				9237A0971B0498CD00C27B1D /* PWWSManager.m in Sources */,
 				92E5D46B1B0491F2005A4D0D /* main.m in Sources */,
+				92573A8B1B04B3CC0004875F /* PWViewController.m in Sources */,
+				92573A911B04C2780004875F /* PWDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92E5D4851B0491F2005A4D0D /* IOSTrelloDemoTests.m in Sources */,
+				9237A0921B04986500C27B1D /* PWWSManagerSpec.m in Sources */,
+				92573A931B04C29C0004875F /* PWDataManagerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +481,7 @@
 		};
 		92E5D4891B0491F2005A4D0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3E0FAB04ABCFDCA81A613BA /* Pods-IOSTrelloDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "IOSTrelloDemo/IOSTrelloDemo-Prefix.pch";
@@ -415,6 +494,7 @@
 		};
 		92E5D48A1B0491F2005A4D0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CAAB7248CD5DE43F285271 /* Pods-IOSTrelloDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "IOSTrelloDemo/IOSTrelloDemo-Prefix.pch";

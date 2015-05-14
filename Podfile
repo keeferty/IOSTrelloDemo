@@ -6,6 +6,11 @@ target 'IOSTrelloDemo' do
 end
 
 target 'IOSTrelloDemoTests' do
+    
+pod 'Specta', '~> 1.0'
+pod 'Expecta', '~> 1.0'
+pod 'OHHTTPStubs', '~> 4.0'
+pod 'OCMock', '~> 3.1'
 
 end
 

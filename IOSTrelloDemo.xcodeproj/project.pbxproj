@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B41334BFB27471F11B8E725 /* libPods-IOSTrelloDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */; };
 		92E5D46B1B0491F2005A4D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46A1B0491F2005A4D0D /* main.m */; };
 		92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46D1B0491F2005A4D0D /* AppDelegate.m */; };
 		92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4721B0491F2005A4D0D /* Main.storyboard */; };
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BCED993224F93CA8A68122E /* Pods-IOSTrelloDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8ED6A489C7CA15858A790602 /* Pods-IOSTrelloDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		92E5D4651B0491F2005A4D0D /* IOSTrelloDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTrelloDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4691B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D46A1B0491F2005A4D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		92E5D4831B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D4841B0491F2005A4D0D /* IOSTrelloDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSTrelloDemoTests.m; sourceTree = "<group>"; };
 		92E5D48E1B04929C005A4D0D /* IOSTrelloDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSTrelloDemo-Prefix.pch"; sourceTree = "<group>"; };
+		D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSTrelloDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B41334BFB27471F11B8E725 /* libPods-IOSTrelloDemoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +69,8 @@
 				92E5D4671B0491F2005A4D0D /* IOSTrelloDemo */,
 				92E5D4811B0491F2005A4D0D /* IOSTrelloDemoTests */,
 				92E5D4661B0491F2005A4D0D /* Products */,
+				FE006F935E0FFE2BC2190ECB /* Pods */,
+				933F8C2C214C08A386382729 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +123,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		933F8C2C214C08A386382729 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE006F935E0FFE2BC2190ECB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BCED993224F93CA8A68122E /* Pods-IOSTrelloDemoTests.debug.xcconfig */,
+				8ED6A489C7CA15858A790602 /* Pods-IOSTrelloDemoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92E5D48B1B0491F2005A4D0D /* Build configuration list for PBXNativeTarget "IOSTrelloDemoTests" */;
 			buildPhases = (
+				5BA0D0FE7B597E87A18E8646 /* Check Pods Manifest.lock */,
 				92E5D47A1B0491F2005A4D0D /* Sources */,
 				92E5D47B1B0491F2005A4D0D /* Frameworks */,
 				92E5D47C1B0491F2005A4D0D /* Resources */,
+				3ACB321DAC0D330CC99A9D2B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,6 +237,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3ACB321DAC0D330CC99A9D2B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSTrelloDemoTests/Pods-IOSTrelloDemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BA0D0FE7B597E87A18E8646 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92E5D4611B0491F2005A4D0D /* Sources */ = {
@@ -368,6 +427,7 @@
 		};
 		92E5D48C1B0491F2005A4D0D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BCED993224F93CA8A68122E /* Pods-IOSTrelloDemoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -387,6 +447,7 @@
 		};
 		92E5D48D1B0491F2005A4D0D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ED6A489C7CA15858A790602 /* Pods-IOSTrelloDemoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

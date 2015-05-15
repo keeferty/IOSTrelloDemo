@@ -24,7 +24,6 @@
             static dispatch_once_t onceToken;
             dispatch_once(&onceToken, ^{
                 sharedManager = [PWDataManager new];
-                sharedManager.loggedIn = NO;
                 sharedManager.token = nil;
                 sharedManager.board = nil;
             });
@@ -53,8 +52,6 @@
                             weakSelf.token = accessToken;
                             weakSelf.loggedIn = YES;
                             [weakSelf save];
-#warning usun to
-                            [weakSelf getOpenBoards];
                         } failureBlock:^(NSError *error) {
                             [weakSelf showAlert:LocString(@"errorTitle")
                                         message:LocString(@"loginErrorMessage")];
@@ -72,12 +69,12 @@
                     PWBoard *board = [[PWBoard alloc]initWithDictionary:obj error:&error];
                     if ((error == nil) && (board != nil) && ([board.name isEqualToString:LocString(@"My_Board")])) {
                         weakSelf.board = board;
+                        [weakSelf getBoardLists];
                         *stop = YES;
                     }
                 }
             }];
         }
-        [weakSelf getBoardLists];
     } failureBlock:^(NSError *error) {
         [weakSelf showAlert:LocString(@"errorTitle")
                     message:LocString(@"getOpenBoardsErrorMessage")];
@@ -110,7 +107,6 @@
                                                 }
                                             }
                                         }];
-                                        [weakSelf save];
                                     }
                                 }
                                 failureBlock:^(NSError *error) {
@@ -141,6 +137,18 @@
                                       [weakSelf showAlert:LocString(@"errorTitle")
                                                   message:LocString(@"getListCardsErrorMessage")];
                                   }];
+}
+
+- (void)getWholeBoard
+{
+    __weak PWDataManager *weakSelf = self;
+    [[[RACObserve([PWWSManager sharedInstance], defaultQueue.operationCount) skip:1] filter:^BOOL(NSNumber *value) {
+        return value.integerValue == 0;
+    }] subscribeNext:^(id x) {
+        weakSelf.board.updated = [NSDate date];
+        [weakSelf save];
+    }];
+    [self getOpenBoards];
 }
 #pragma mark - Helper Stuff
 

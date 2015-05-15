@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, strong) PWBoard *board;
 @property (nonatomic) BOOL loggedIn;
+@property (nonatomic, copy) NSDate *updated;
 
 + (instancetype)sharedInstance;
 
@@ -23,5 +24,6 @@
 - (void)getOpenBoards;
 - (void)getBoardLists;
 - (void)getListCards:(PWList *)list;
+- (void)getWholeBoard;
 
 @end

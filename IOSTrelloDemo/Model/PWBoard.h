@@ -15,7 +15,8 @@
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSString *name;
 
-@property (nonatomic, strong) PWList <Optional>*toDoList;
-@property (nonatomic, strong) PWList <Optional>*doingList;
-@property (nonatomic, strong) PWList <Optional>*doneList;
+@property (nonatomic, strong) NSDate <Ignore>*updated;
+@property (nonatomic, strong) PWList <Ignore>*toDoList;
+@property (nonatomic, strong) PWList <Ignore>*doingList;
+@property (nonatomic, strong) PWList <Ignore>*doneList;
 @end

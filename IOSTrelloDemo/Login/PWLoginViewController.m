@@ -34,6 +34,10 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    __weak PWLoginViewController *weakSelf = self;
+    [[RACObserve([PWDataManager sharedInstance], loggedIn) skip:1] subscribeNext:^(NSString *newName) {
+        [weakSelf goHome];
+    }];
     [self localize];
 }
 
@@ -120,6 +124,15 @@
     } else {
         self.loginButton.enabled = NO;
         [self.loginButton setBackgroundColor:[UIColor lightGrayColor]];
+    }
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.loginField.text.length && self.passwordField.text.length) {
+        self.loginButton.enabled = YES;
+        [self.loginButton setBackgroundColor:[UIColor blueColor]];
     }
     return YES;
 }

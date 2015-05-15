@@ -42,6 +42,9 @@
     [super viewDidLayoutSubviews];
     self.container.layer.cornerRadius = 20;
     self.loginButton.layer.cornerRadius = 5;
+    if ([[PWDataManager sharedInstance]loggedIn]) {
+        [self goHome];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -51,6 +54,12 @@
 }
 
 #pragma mark - Custom Stuff
+
+- (void)goHome
+{
+    UIViewController *ctrl = [self.storyboard instantiateViewControllerWithIdentifier:@"Home"];
+    [self.navigationController setViewControllers:@[ctrl] animated:YES];
+}
 
 - (void)localize
 {
@@ -98,7 +107,7 @@
 
 #pragma mark - UITextFieldDelegate
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (textField == self.loginField) {
         [self.passwordField becomeFirstResponder];

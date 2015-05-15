@@ -14,16 +14,22 @@
 
 #import "PWDataManager.h"
 
-#define BASE_URL    @"https://trello.com/1/"
+#define BASE_URL            @"https://trello.com/1/"
 
-#define LOGIN_REQUEST     @"OAuthGetRequestToken"
-#define LOGIN_AUTHORIZE   @"OAuthAuthorizeToken"
-#define LOGIN_GET_ACESS   @"OAuthGetAccessToken"
+#define LOGIN_REQUEST       @"OAuthGetRequestToken"
+#define LOGIN_AUTHORIZE     @"OAuthAuthorizeToken"
+#define LOGIN_GET_ACESS     @"OAuthGetAccessToken"
+
+#define GET_BOARDS          @"members/my/boards"
+#define GET_BOARD_LISTS     @"boards/%@/lists"
+
+#define GET_LIST_CARDS      @"lists/%@/cards"
 
 @interface PWWSManager ()
 
 @property (nonatomic, strong) NSOperationQueue *defaultQueue;
 @property (nonatomic, strong) AF2OAuth1Client *authClient;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
 
 @end
 
@@ -60,7 +66,7 @@
 {
     if (!_defaultQueue) {
         _defaultQueue = [NSOperationQueue new];
-        [_defaultQueue setMaxConcurrentOperationCount:4];
+        [_defaultQueue setMaxConcurrentOperationCount:3];
     }
     return _defaultQueue;
 }
@@ -74,6 +80,16 @@
     }
     return _authClient;
 }
+
+- (AFHTTPRequestOperationManager *)operationManager
+{
+    if (!_operationManager) {
+        _operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:BASE_URL]];
+        [_operationManager setOperationQueue:self.defaultQueue];
+    }
+    return _operationManager;
+}
+
 #pragma mark - API Calls
 
 - (void)login:(NSString *)username
@@ -97,4 +113,58 @@ completionBlock:(void(^)(NSString *accessToken))completionBlock
                                                          }
                                                      }];
 }
+
+- (void)getOpenBoards:(void(^)(id responseObject))completionBlock
+         failureBlock:(void(^)(NSError *error))failureBlock
+{
+    [self.operationManager GET:GET_BOARDS
+                    parameters:@{@"key" : TRELLO_KEY, @"token" : [PWDataManager sharedInstance].token}
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           if (completionBlock) {
+                               completionBlock(responseObject);
+                           }
+                       }
+                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           if (failureBlock) {
+                               failureBlock(error);
+                           }
+                       }];
+}
+
+- (void)getBoardLists:(NSString *)boardId
+      completionBlock:(void(^)(id responseObject))completionBlock
+         failureBlock:(void(^)(NSError *error))failureBlock
+{
+    [self.operationManager GET:[NSString stringWithFormat:GET_BOARD_LISTS,boardId]
+                    parameters:@{@"key" : TRELLO_KEY, @"token" : [PWDataManager sharedInstance].token}
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           if (completionBlock) {
+                               completionBlock(responseObject);
+                           }
+                       }
+                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           if (failureBlock) {
+                               failureBlock(error);
+                           }
+                       }];
+}
+
+- (void)getListCards:(NSString *)listId
+      completionBlock:(void(^)(id responseObject))completionBlock
+         failureBlock:(void(^)(NSError *error))failureBlock
+{
+    [self.operationManager GET:[NSString stringWithFormat:GET_LIST_CARDS,listId]
+                    parameters:@{@"key" : TRELLO_KEY, @"token" : [PWDataManager sharedInstance].token}
+                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                           if (completionBlock) {
+                               completionBlock(responseObject);
+                           }
+                       }
+                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                           if (failureBlock) {
+                               failureBlock(error);
+                           }
+                       }];
+}
+
 @end

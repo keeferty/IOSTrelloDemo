@@ -5,6 +5,7 @@ target 'IOSTrelloDemo' do
 pod 'AFNetworking', '~> 2.5'
 pod 'AFNetworkActivityLogger', '~> 2.0'
 pod 'AF2OAuth1Client', '~> 0.3'
+pod 'JSONModel', '~> 1.1'
 end
 
 target 'IOSTrelloDemoTests' do

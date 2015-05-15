@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AF2OAuth1Client.h>
+#import <JSONModel.h>
 @interface AppDelegate ()
 
 @end
@@ -20,6 +21,11 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:24]}];
+    
+    
+    JSONKeyMapper *mapper = [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
+    [JSONModel setGlobalKeyMapper:mapper];
+
     return YES;
 }
 

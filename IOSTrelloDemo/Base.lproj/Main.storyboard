@@ -125,5 +125,23 @@
             </objects>
             <point key="canvasLocation" x="-207" y="416"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lY3-sX-lsx">
+            <objects>
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2n0-Nh-PHr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xjl-d7-DkQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ck6-c1-2eK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UYs-Mt-aMT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CN6-b8-koK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-207" y="1096"/>
+        </scene>
     </scenes>
 </document>

@@ -12,3 +12,10 @@
 "OK" = "OK";
 "errorTitle" = "Something Went Wrong";
 "loginErrorMessage" = "Logging in to Trello Failed. Please try again";
+"My_Board" = "My_Board";
+"getOpenBoardsErrorMessage" = "Could not get open boards for this account. Relogin or try a different one";
+"getBoardListsErrorMessage" = "Could not get lists for the Board. Please try a different Account";
+"To do" = "To do";
+"Doing" = "Doing";
+"Done" = "Done";
+"getListCardsErrorMessage" = "Could not get cards for one of the lists. Please try a different Account";

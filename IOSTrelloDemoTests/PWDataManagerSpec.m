@@ -28,7 +28,19 @@ describe(@"PWDataManager", ^{
     it(@"has a login api call proxy implementation", ^{
         expect([PWDataManager sharedInstance]).to.respondTo(@selector(login:password:));
     });
-
+    
+    it(@"has a get open boards api call proxy implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(getOpenBoards));
+    });
+    
+    it(@"has a get board lists api call proxy implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(getBoardLists));
+    });
+    
+    it(@"has a get list cards api call proxy implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(getListCards:));
+    });
+    
 });
 
 SpecEnd

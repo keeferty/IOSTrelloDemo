@@ -29,6 +29,19 @@ describe(@"PWWSManager", ^{
     it(@"has a login api call implementation", ^{
         expect([PWWSManager sharedInstance]).to.respondTo(@selector(login:password:completionBlock:failureBlock:));
     });
+
+    it(@"has a get boards api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(getOpenBoards:failureBlock:));
+    });
+    
+    it(@"has a get board lists api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(getBoardLists:completionBlock:failureBlock:));
+    });
+    
+    it(@"has a get lists cards api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(getListCards:completionBlock:failureBlock:));
+    });
+    
 });
 
 SpecEnd

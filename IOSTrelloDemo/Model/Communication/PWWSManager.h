@@ -14,9 +14,20 @@
 
 + (instancetype)sharedInstance;
 
+
 - (void)login:(NSString *)username
      password:(NSString *)password
 completionBlock:(void(^)(NSString *accessToken))completionBlock
  failureBlock:(void(^)(NSError *error))failureBlock;
 
+- (void)getOpenBoards:(void(^)(id responseObject))completionBlock
+         failureBlock:(void(^)(NSError *error))failureBlock;
+
+- (void)getBoardLists:(NSString *)boardId
+      completionBlock:(void(^)(id responseObject))completionBlock
+         failureBlock:(void(^)(NSError *error))failureBlock;
+
+- (void)getListCards:(NSString *)listId
+     completionBlock:(void(^)(id responseObject))completionBlock
+        failureBlock:(void(^)(NSError *error))failureBlock;
 @end

@@ -18,6 +18,10 @@
 		92573AA31B04D7B60004875F /* PWNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA21B04D7B60004875F /* PWNavigationControllerDelegate.m */; };
 		92573AA81B04D7F20004875F /* PWPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA51B04D7F20004875F /* PWPopAnimator.m */; };
 		92573AA91B04D7F20004875F /* PWPushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA71B04D7F20004875F /* PWPushAnimator.m */; };
+		9272DCD21B058AC8009D6D09 /* PWBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCD11B058AC8009D6D09 /* PWBoard.m */; };
+		9272DCDC1B059646009D6D09 /* PWList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCDB1B059646009D6D09 /* PWList.m */; };
+		9272DCDF1B059E46009D6D09 /* PWCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCDE1B059E46009D6D09 /* PWCard.m */; };
+		9272DCE21B05A0C9009D6D09 /* NSObject+PWCodableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCE11B05A0C9009D6D09 /* NSObject+PWCodableObject.m */; };
 		92E5D46B1B0491F2005A4D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46A1B0491F2005A4D0D /* main.m */; };
 		92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46D1B0491F2005A4D0D /* AppDelegate.m */; };
 		92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4721B0491F2005A4D0D /* Main.storyboard */; };
@@ -56,6 +60,14 @@
 		92573AA61B04D7F20004875F /* PWPushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWPushAnimator.h; sourceTree = "<group>"; };
 		92573AA71B04D7F20004875F /* PWPushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWPushAnimator.m; sourceTree = "<group>"; };
 		9272DCCF1B058081009D6D09 /* IOSTrelloDemoTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSTrelloDemoTests-Prefix.pch"; sourceTree = "<group>"; };
+		9272DCD01B058AC8009D6D09 /* PWBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWBoard.h; sourceTree = "<group>"; };
+		9272DCD11B058AC8009D6D09 /* PWBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWBoard.m; sourceTree = "<group>"; };
+		9272DCDA1B059646009D6D09 /* PWList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWList.h; sourceTree = "<group>"; };
+		9272DCDB1B059646009D6D09 /* PWList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWList.m; sourceTree = "<group>"; };
+		9272DCDD1B059E46009D6D09 /* PWCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWCard.h; sourceTree = "<group>"; };
+		9272DCDE1B059E46009D6D09 /* PWCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWCard.m; sourceTree = "<group>"; };
+		9272DCE01B05A0C9009D6D09 /* NSObject+PWCodableObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PWCodableObject.h"; sourceTree = "<group>"; };
+		9272DCE11B05A0C9009D6D09 /* NSObject+PWCodableObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PWCodableObject.m"; sourceTree = "<group>"; };
 		92E5D4651B0491F2005A4D0D /* IOSTrelloDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTrelloDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4691B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D46A1B0491F2005A4D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +113,12 @@
 				9237A0941B0498B600C27B1D /* Communication */,
 				92573A8F1B04C2780004875F /* PWDataManager.h */,
 				92573A901B04C2780004875F /* PWDataManager.m */,
+				9272DCD01B058AC8009D6D09 /* PWBoard.h */,
+				9272DCD11B058AC8009D6D09 /* PWBoard.m */,
+				9272DCDA1B059646009D6D09 /* PWList.h */,
+				9272DCDB1B059646009D6D09 /* PWList.m */,
+				9272DCDD1B059E46009D6D09 /* PWCard.h */,
+				9272DCDE1B059E46009D6D09 /* PWCard.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -139,6 +157,8 @@
 		92573A9D1B04D5320004875F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				9272DCE01B05A0C9009D6D09 /* NSObject+PWCodableObject.h */,
+				9272DCE11B05A0C9009D6D09 /* NSObject+PWCodableObject.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -427,7 +447,11 @@
 			files = (
 				92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */,
 				92573AA91B04D7F20004875F /* PWPushAnimator.m in Sources */,
+				9272DCE21B05A0C9009D6D09 /* NSObject+PWCodableObject.m in Sources */,
+				9272DCDF1B059E46009D6D09 /* PWCard.m in Sources */,
 				9237A0971B0498CD00C27B1D /* PWWSManager.m in Sources */,
+				9272DCD21B058AC8009D6D09 /* PWBoard.m in Sources */,
+				9272DCDC1B059646009D6D09 /* PWList.m in Sources */,
 				92573AA81B04D7F20004875F /* PWPopAnimator.m in Sources */,
 				92E5D46B1B0491F2005A4D0D /* main.m in Sources */,
 				92573A911B04C2780004875F /* PWDataManager.m in Sources */,

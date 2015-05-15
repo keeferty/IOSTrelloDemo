@@ -24,8 +24,11 @@
 
 @property (nonatomic, strong) I3GestureCoordinator *dragCoordinator;
 
+@property (nonatomic) BOOL locked;
 
 @property (weak, nonatomic) IBOutlet UIView *deleteView;
+
+
 @end
 
 #pragma mark - UIViewController Lifecycle
@@ -33,6 +36,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:LocString(@"Lock") style:UIBarButtonItemStylePlain target:self action:@selector(lockList)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
     __weak PWHomeViewController *weakSelf = self;
     [[RACObserve([PWDataManager sharedInstance], board.updated) skip:1] subscribeNext:^(id x) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -42,11 +47,13 @@
             [self.rightCollection reloadData];
         });
     }];
+    
     self.dragCoordinator = [I3GestureCoordinator basicGestureCoordinatorFromViewController:self withCollections:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection] withRecognizer:[UILongPressGestureRecognizer new]];
     self.dragCoordinator.renderDelegate = [[FunkRenderDelegate alloc]initWithPotentialDstViews:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection, self.deleteView] andDeleteArea:self.deleteView];
     I3BasicRenderDelegate *renderDelegate = (I3BasicRenderDelegate *)self.dragCoordinator.renderDelegate;
     renderDelegate.draggingItemOpacity = 0.4;
-//    [self.hud showInView:self.view];
+    
+    [self.hud showInView:self.view];
     [[PWDataManager sharedInstance] getWholeBoard];
 }
 
@@ -60,15 +67,6 @@
     }
     return _hud;
 }
-
-//- (I3GestureCoordinator *)dragCoordinator
-//{
-//    if (!_dragCoordinator) {
-//        _dragCoordinator = [I3GestureCoordinator basicGestureCoordinatorFromViewController:self withCollections:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection] withRecognizer:[UILongPressGestureRecognizer new]];
-//        _dragCoordinator.renderDelegate = [[FunkRenderDelegate alloc]initWithPotentialDstViews:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection, self,_deleteView] andDeleteArea:self.deleteView];
-//    }
-//    return _dragCoordinator;
-//}
 
 #pragma mark - Helper Stuff
 
@@ -85,7 +83,10 @@
     else if(collectionView == self.rightCollection){
         data = [PWDataManager sharedInstance].board.doneList.cards;
     } else {
-        data = [@[@111]mutableCopy];
+        PWCard *card = [PWCard new];
+        card.name = LocString(@"New Item");
+        card.desc = LocString(@"Drag me");
+        data = [@[card]mutableCopy];
     }
     
     return data;
@@ -97,6 +98,25 @@
     return [self.deleteView pointInside:localPoint withEvent:nil];
 }
 
+- (void)lockList
+{
+    __weak PWHomeViewController *weakSelf = self;
+    if (!self.locked) {
+        [UIView animateWithDuration:0.3 animations:^{
+            weakSelf.navigationItem.rightBarButtonItem.title = LocString(@"Unlock");
+            weakSelf.middleCollection.backgroundColor = [UIColor redColor];
+            weakSelf.rightCollection.backgroundColor = [UIColor redColor];
+            self.locked = YES;
+        }];
+    }else{
+        [UIView animateWithDuration:0.3 animations:^{
+            weakSelf.navigationItem.rightBarButtonItem.title = LocString(@"Lock");
+            weakSelf.middleCollection.backgroundColor = weakSelf.leftCollection.backgroundColor;
+            weakSelf.rightCollection.backgroundColor = weakSelf.leftCollection.backgroundColor;
+            self.locked = NO;
+        }];
+    }
+}
 
 #pragma mark - UICollectionDataSource
 
@@ -131,13 +151,31 @@
 
 - (BOOL) canItemAt:(NSIndexPath *)from fromCollection:(UIView<I3Collection> *)fromCollection beDroppedTo:(NSIndexPath *)to onCollection:(UIView<I3Collection> *)toCollection
 {
-    return YES;
+    if (self.locked) {
+        if (fromCollection == self.sourceCollection) {
+            if (toCollection ==self.leftCollection) {
+                return YES;
+            }else
+                return NO;
+        }else
+            return YES;
+    }else
+        return YES;
 }
 
 
 - (BOOL) canItemAt:(NSIndexPath *)from fromCollection:(UIView<I3Collection> *)fromCollection beDroppedAtPoint:(CGPoint)at onCollection:(UIView<I3Collection> *)toCollection
 {
-    return ![self isPointInDeletionArea:at fromView:toCollection];
+    if (self.locked) {
+        if (fromCollection == self.sourceCollection) {
+            if (toCollection ==self.leftCollection) {
+                return YES && ![self isPointInDeletionArea:at fromView:toCollection];
+            }else
+                return ![self isPointInDeletionArea:at fromView:toCollection];
+        }else
+            return YES && ![self isPointInDeletionArea:at fromView:toCollection];
+    }else
+        return ![self isPointInDeletionArea:at fromView:toCollection];
 }
 
 
@@ -149,10 +187,13 @@
 
 - (void) deleteItemAt:(NSIndexPath *)at inCollection:(UIView<I3Collection> *)collection
 {
-    NSMutableArray *fromData = [self dataForCollectionView:collection];
-    
-    [fromData removeObjectAtIndex:at.row];
-    [collection deleteItemsAtIndexPaths:@[at]];
+    if (collection != self.sourceCollection) {
+        NSMutableArray *fromData = [self dataForCollectionView:collection];
+        [fromData removeObjectAtIndex:at.row];
+        [collection deleteItemsAtIndexPaths:@[at]];
+    }else {
+        [collection reloadItemsAtIndexPaths:@[at]];
+    }
 }
 
 
@@ -175,7 +216,9 @@
     [fromData removeObjectAtIndex:fromIndex.row];
     [toData insertObject:exchangingCard atIndex:toIndex.row];
     
-    [fromCollection deleteItemsAtIndexPaths:@[fromIndex]];
+    if (fromCollection != self.sourceCollection) {
+        [fromCollection deleteItemsAtIndexPaths:@[fromIndex]];
+    }
     [toCollection insertItemsAtIndexPaths:@[toIndex]];
 }
 

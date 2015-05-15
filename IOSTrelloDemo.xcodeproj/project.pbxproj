@@ -27,6 +27,8 @@
 		9272DCF01B05D653009D6D09 /* PWHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCEF1B05D653009D6D09 /* PWHomeCollectionViewCell.m */; };
 		9272DCF31B05D817009D6D09 /* FunkRenderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCF21B05D817009D6D09 /* FunkRenderDelegate.m */; };
 		9272DCF91B05EE03009D6D09 /* PWSpringLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCF81B05EE03009D6D09 /* PWSpringLayout.m */; };
+		9272DCFE1B0607EC009D6D09 /* PWDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCFD1B0607EC009D6D09 /* PWDetailViewController.m */; };
+		9272DD001B06081B009D6D09 /* PWDetailViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9272DCFF1B06081B009D6D09 /* PWDetailViewControllerSpec.m */; };
 		92E5D46B1B0491F2005A4D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46A1B0491F2005A4D0D /* main.m */; };
 		92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46D1B0491F2005A4D0D /* AppDelegate.m */; };
 		92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4721B0491F2005A4D0D /* Main.storyboard */; };
@@ -82,6 +84,9 @@
 		9272DCF21B05D817009D6D09 /* FunkRenderDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunkRenderDelegate.m; sourceTree = "<group>"; };
 		9272DCF71B05EE03009D6D09 /* PWSpringLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSpringLayout.h; sourceTree = "<group>"; };
 		9272DCF81B05EE03009D6D09 /* PWSpringLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSpringLayout.m; sourceTree = "<group>"; };
+		9272DCFC1B0607EC009D6D09 /* PWDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDetailViewController.h; sourceTree = "<group>"; };
+		9272DCFD1B0607EC009D6D09 /* PWDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDetailViewController.m; sourceTree = "<group>"; };
+		9272DCFF1B06081B009D6D09 /* PWDetailViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDetailViewControllerSpec.m; sourceTree = "<group>"; };
 		92E5D4651B0491F2005A4D0D /* IOSTrelloDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTrelloDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4691B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D46A1B0491F2005A4D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -208,6 +213,23 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
+		9272DCFA1B060777009D6D09 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				9272DCFB1B06077E009D6D09 /* ViewControllers */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		9272DCFB1B06077E009D6D09 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9272DCFC1B0607EC009D6D09 /* PWDetailViewController.h */,
+				9272DCFD1B0607EC009D6D09 /* PWDetailViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		92E5D45C1B0491F2005A4D0D = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +256,7 @@
 				9237A0931B0498B600C27B1D /* Model */,
 				92E8DCD21B054BE600B6DE81 /* Login */,
 				9272DCE31B05AB46009D6D09 /* Home */,
+				9272DCFA1B060777009D6D09 /* Detail */,
 				92573A9B1B04D5270004875F /* Misc */,
 				92E5D4681B0491F2005A4D0D /* Supporting Files */,
 			);
@@ -299,6 +322,7 @@
 				92E8DCDC1B05546F00B6DE81 /* MainStoryboardSpec.m */,
 				9240FC381B055F8D00D65265 /* PWLoginViewControllerSpec.m */,
 				9272DCE81B05ABC6009D6D09 /* PWHomeViewControllerSpec.m */,
+				9272DCFF1B06081B009D6D09 /* PWDetailViewControllerSpec.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -492,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9272DCFE1B0607EC009D6D09 /* PWDetailViewController.m in Sources */,
 				92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */,
 				92573AA91B04D7F20004875F /* PWPushAnimator.m in Sources */,
 				9272DCE21B05A0C9009D6D09 /* NSObject+PWCodableObject.m in Sources */,
@@ -516,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9240FC391B055F8D00D65265 /* PWLoginViewControllerSpec.m in Sources */,
+				9272DD001B06081B009D6D09 /* PWDetailViewControllerSpec.m in Sources */,
 				9272DCE91B05ABC6009D6D09 /* PWHomeViewControllerSpec.m in Sources */,
 				9237A0921B04986500C27B1D /* PWWSManagerSpec.m in Sources */,
 				92573A931B04C29C0004875F /* PWDataManagerSpec.m in Sources */,

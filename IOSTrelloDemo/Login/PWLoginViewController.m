@@ -74,7 +74,7 @@
     [self.loginButton setTitle:LocString(@"Login") forState:UIControlStateNormal];
 }
 
--(void) keyboardWillShow:(NSNotification *)note{
+- (void) keyboardWillShow:(NSNotification *)note{
     CGRect keyboardBounds;
     [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
@@ -91,7 +91,7 @@
     [UIView commitAnimations];
 }
 
--(void) keyboardWillHide:(NSNotification *)note{
+- (void) keyboardWillHide:(NSNotification *)note{
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     [UIView beginAnimations:nil context:NULL];

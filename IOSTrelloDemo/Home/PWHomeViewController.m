@@ -14,6 +14,7 @@
 #import <I3GestureCoordinator.h>
 #import "FunkRenderDelegate.h"
 #import "PWHomeCollectionViewCell.h"
+#import "PWDetailViewController.h"
 
 @interface PWHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, I3DragDataSource>
 @property (nonatomic, strong) JGProgressHUD *hud;
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) I3GestureCoordinator *dragCoordinator;
 
 @property (nonatomic) BOOL locked;
+@property (nonatomic, weak) PWCard *passThruCard;
 
 @property (weak, nonatomic) IBOutlet UIView *deleteView;
 
@@ -33,6 +35,14 @@
 
 #pragma mark - UIViewController Lifecycle
 @implementation PWHomeViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[PWDataManager sharedInstance] getWholeBoard];
+    [self.hud showInView:self.view];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -42,19 +52,15 @@
     [[RACObserve([PWDataManager sharedInstance], board.updated) skip:1] subscribeNext:^(id x) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [weakSelf.hud dismiss];
-            [self.leftCollection reloadData];
-            [self.middleCollection reloadData];
-            [self.rightCollection reloadData];
+            [self reloadCollections];
         });
     }];
+    [self reloadCollections];
     
     self.dragCoordinator = [I3GestureCoordinator basicGestureCoordinatorFromViewController:self withCollections:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection] withRecognizer:[UILongPressGestureRecognizer new]];
     self.dragCoordinator.renderDelegate = [[FunkRenderDelegate alloc]initWithPotentialDstViews:@[self.leftCollection, self.middleCollection, self.rightCollection, self.sourceCollection, self.deleteView] andDeleteArea:self.deleteView];
     I3BasicRenderDelegate *renderDelegate = (I3BasicRenderDelegate *)self.dragCoordinator.renderDelegate;
     renderDelegate.draggingItemOpacity = 0.4;
-    
-    [self.hud showInView:self.view];
-    [[PWDataManager sharedInstance] getWholeBoard];
 }
 
 #pragma mark - Getters for lazy instantiation
@@ -70,7 +76,14 @@
 
 #pragma mark - Helper Stuff
 
--(NSMutableArray *)dataForCollectionView:(UIView *)collectionView{
+- (void)reloadCollections
+{
+    [self.leftCollection reloadData];
+    [self.middleCollection reloadData];
+    [self.rightCollection reloadData];
+}
+
+- (NSMutableArray *)dataForCollectionView:(UIView *)collectionView{
     
     NSMutableArray *data = nil;
     
@@ -92,7 +105,7 @@
     return data;
 }
 
--(BOOL) isPointInDeletionArea:(CGPoint) point fromView:(UIView *)view{
+- (BOOL) isPointInDeletionArea:(CGPoint) point fromView:(UIView *)view{
     
     CGPoint localPoint = [self.deleteView convertPoint:point fromView:view];
     return [self.deleteView pointInside:localPoint withEvent:nil];
@@ -134,6 +147,14 @@
     
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.passThruCard = [[self dataForCollectionView:collectionView] objectAtIndex:indexPath.item];
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
+}
+
 #pragma mark - I3DragDataSource
 
 
@@ -171,7 +192,7 @@
             if (toCollection ==self.leftCollection) {
                 return YES && ![self isPointInDeletionArea:at fromView:toCollection];
             }else
-                return ![self isPointInDeletionArea:at fromView:toCollection];
+                return NO;
         }else
             return YES && ![self isPointInDeletionArea:at fromView:toCollection];
     }else
@@ -231,4 +252,11 @@
     [self dropItemAt:from fromCollection:fromCollection toItemAt:toIndexPath onCollection:toCollection];
 }
 
+#pragma mark - Navigation Stuff
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PWDetailViewController *detCtrl = [segue destinationViewController];
+    detCtrl.card = self.passThruCard;
+}
 @end

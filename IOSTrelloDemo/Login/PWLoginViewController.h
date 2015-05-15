@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  PWLoginViewController.h
 //  IOSTrelloDemo
 //
 //  Created by Pawel Weglewski on 14/05/15.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface PWLoginViewController : UIViewController
 
 @end
-

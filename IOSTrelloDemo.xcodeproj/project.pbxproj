@@ -11,14 +11,20 @@
 		1B50A0445169FEFB44CF2626 /* libPods-IOSTrelloDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0109A8DEE3B01CC98664C465 /* libPods-IOSTrelloDemo.a */; };
 		9237A0921B04986500C27B1D /* PWWSManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237A0911B04986500C27B1D /* PWWSManagerSpec.m */; };
 		9237A0971B0498CD00C27B1D /* PWWSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9237A0961B0498CD00C27B1D /* PWWSManager.m */; };
-		92573A8B1B04B3CC0004875F /* PWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A8A1B04B3CC0004875F /* PWViewController.m */; };
+		9240FC391B055F8D00D65265 /* PWLoginViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9240FC381B055F8D00D65265 /* PWLoginViewControllerSpec.m */; };
+		9240FC3B1B05694600D65265 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9240FC3A1B05694600D65265 /* Localizable.strings */; };
 		92573A911B04C2780004875F /* PWDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A901B04C2780004875F /* PWDataManager.m */; };
 		92573A931B04C29C0004875F /* PWDataManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573A921B04C29C0004875F /* PWDataManagerSpec.m */; };
+		92573AA31B04D7B60004875F /* PWNavigationControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA21B04D7B60004875F /* PWNavigationControllerDelegate.m */; };
+		92573AA81B04D7F20004875F /* PWPopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA51B04D7F20004875F /* PWPopAnimator.m */; };
+		92573AA91B04D7F20004875F /* PWPushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 92573AA71B04D7F20004875F /* PWPushAnimator.m */; };
 		92E5D46B1B0491F2005A4D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46A1B0491F2005A4D0D /* main.m */; };
 		92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E5D46D1B0491F2005A4D0D /* AppDelegate.m */; };
 		92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4721B0491F2005A4D0D /* Main.storyboard */; };
 		92E5D4761B0491F2005A4D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4751B0491F2005A4D0D /* Images.xcassets */; };
 		92E5D4791B0491F2005A4D0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E5D4771B0491F2005A4D0D /* LaunchScreen.xib */; };
+		92E8DCD61B054C1C00B6DE81 /* PWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8DCD51B054C1C00B6DE81 /* PWLoginViewController.m */; };
+		92E8DCDD1B05546F00B6DE81 /* MainStoryboardSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E8DCDC1B05546F00B6DE81 /* MainStoryboardSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,11 +44,18 @@
 		9237A0911B04986500C27B1D /* PWWSManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWWSManagerSpec.m; sourceTree = "<group>"; };
 		9237A0951B0498CD00C27B1D /* PWWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWWSManager.h; sourceTree = "<group>"; };
 		9237A0961B0498CD00C27B1D /* PWWSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWWSManager.m; sourceTree = "<group>"; };
-		92573A891B04B3CC0004875F /* PWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWViewController.h; sourceTree = "<group>"; };
-		92573A8A1B04B3CC0004875F /* PWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWViewController.m; sourceTree = "<group>"; };
+		9240FC381B055F8D00D65265 /* PWLoginViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWLoginViewControllerSpec.m; sourceTree = "<group>"; };
+		9240FC3A1B05694600D65265 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		92573A8F1B04C2780004875F /* PWDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWDataManager.h; sourceTree = "<group>"; };
 		92573A901B04C2780004875F /* PWDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDataManager.m; sourceTree = "<group>"; };
 		92573A921B04C29C0004875F /* PWDataManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWDataManagerSpec.m; sourceTree = "<group>"; };
+		92573AA11B04D7B60004875F /* PWNavigationControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWNavigationControllerDelegate.h; sourceTree = "<group>"; };
+		92573AA21B04D7B60004875F /* PWNavigationControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWNavigationControllerDelegate.m; sourceTree = "<group>"; };
+		92573AA41B04D7F20004875F /* PWPopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWPopAnimator.h; sourceTree = "<group>"; };
+		92573AA51B04D7F20004875F /* PWPopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWPopAnimator.m; sourceTree = "<group>"; };
+		92573AA61B04D7F20004875F /* PWPushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWPushAnimator.h; sourceTree = "<group>"; };
+		92573AA71B04D7F20004875F /* PWPushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWPushAnimator.m; sourceTree = "<group>"; };
+		9272DCCF1B058081009D6D09 /* IOSTrelloDemoTests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSTrelloDemoTests-Prefix.pch"; sourceTree = "<group>"; };
 		92E5D4651B0491F2005A4D0D /* IOSTrelloDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSTrelloDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4691B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D46A1B0491F2005A4D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,6 +67,9 @@
 		92E5D47E1B0491F2005A4D0D /* IOSTrelloDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSTrelloDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E5D4831B0491F2005A4D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92E5D48E1B04929C005A4D0D /* IOSTrelloDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IOSTrelloDemo-Prefix.pch"; sourceTree = "<group>"; };
+		92E8DCD41B054C1C00B6DE81 /* PWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWLoginViewController.h; sourceTree = "<group>"; };
+		92E8DCD51B054C1C00B6DE81 /* PWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWLoginViewController.m; sourceTree = "<group>"; };
+		92E8DCDC1B05546F00B6DE81 /* MainStoryboardSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainStoryboardSpec.m; sourceTree = "<group>"; };
 		B3E0FAB04ABCFDCA81A613BA /* Pods-IOSTrelloDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemo/Pods-IOSTrelloDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		C7CAAB7248CD5DE43F285271 /* Pods-IOSTrelloDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSTrelloDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-IOSTrelloDemo/Pods-IOSTrelloDemo.release.xcconfig"; sourceTree = "<group>"; };
 		D54CEF6B92FF0A8404F6E016 /* libPods-IOSTrelloDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSTrelloDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +114,35 @@
 			path = Communication;
 			sourceTree = "<group>";
 		};
+		92573A9B1B04D5270004875F /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				92573A9D1B04D5320004875F /* Categories */,
+				92573A9C1B04D52B0004875F /* Classes */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		92573A9C1B04D52B0004875F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				92573AA11B04D7B60004875F /* PWNavigationControllerDelegate.h */,
+				92573AA21B04D7B60004875F /* PWNavigationControllerDelegate.m */,
+				92573AA41B04D7F20004875F /* PWPopAnimator.h */,
+				92573AA51B04D7F20004875F /* PWPopAnimator.m */,
+				92573AA61B04D7F20004875F /* PWPushAnimator.h */,
+				92573AA71B04D7F20004875F /* PWPushAnimator.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		92573A9D1B04D5320004875F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		92E5D45C1B0491F2005A4D0D = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +166,9 @@
 		92E5D4671B0491F2005A4D0D /* IOSTrelloDemo */ = {
 			isa = PBXGroup;
 			children = (
+				92E8DCD21B054BE600B6DE81 /* Login */,
 				9237A0931B0498B600C27B1D /* Model */,
+				92573A9B1B04D5270004875F /* Misc */,
 				92E5D4681B0491F2005A4D0D /* Supporting Files */,
 			);
 			path = IOSTrelloDemo;
@@ -132,14 +179,13 @@
 			children = (
 				92E5D46C1B0491F2005A4D0D /* AppDelegate.h */,
 				92E5D46D1B0491F2005A4D0D /* AppDelegate.m */,
-				92573A891B04B3CC0004875F /* PWViewController.h */,
-				92573A8A1B04B3CC0004875F /* PWViewController.m */,
 				92E5D4721B0491F2005A4D0D /* Main.storyboard */,
 				92E5D4751B0491F2005A4D0D /* Images.xcassets */,
 				92E5D4771B0491F2005A4D0D /* LaunchScreen.xib */,
 				92E5D4691B0491F2005A4D0D /* Info.plist */,
 				92E5D46A1B0491F2005A4D0D /* main.m */,
 				92E5D48E1B04929C005A4D0D /* IOSTrelloDemo-Prefix.pch */,
+				9240FC3A1B05694600D65265 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,9 +193,8 @@
 		92E5D4811B0491F2005A4D0D /* IOSTrelloDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				92E8DCD71B054CD100B6DE81 /* Tests */,
 				92E5D4821B0491F2005A4D0D /* Supporting Files */,
-				9237A0911B04986500C27B1D /* PWWSManagerSpec.m */,
-				92573A921B04C29C0004875F /* PWDataManagerSpec.m */,
 			);
 			path = IOSTrelloDemoTests;
 			sourceTree = "<group>";
@@ -158,8 +203,37 @@
 			isa = PBXGroup;
 			children = (
 				92E5D4831B0491F2005A4D0D /* Info.plist */,
+				9272DCCF1B058081009D6D09 /* IOSTrelloDemoTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92E8DCD21B054BE600B6DE81 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				92E8DCD31B054C0800B6DE81 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		92E8DCD31B054C0800B6DE81 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92E8DCD41B054C1C00B6DE81 /* PWLoginViewController.h */,
+				92E8DCD51B054C1C00B6DE81 /* PWLoginViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		92E8DCD71B054CD100B6DE81 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9237A0911B04986500C27B1D /* PWWSManagerSpec.m */,
+				92573A921B04C29C0004875F /* PWDataManagerSpec.m */,
+				92E8DCDC1B05546F00B6DE81 /* MainStoryboardSpec.m */,
+				9240FC381B055F8D00D65265 /* PWLoginViewControllerSpec.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		933F8C2C214C08A386382729 /* Frameworks */ = {
@@ -268,6 +342,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E5D4741B0491F2005A4D0D /* Main.storyboard in Resources */,
+				9240FC3B1B05694600D65265 /* Localizable.strings in Resources */,
 				92E5D4791B0491F2005A4D0D /* LaunchScreen.xib in Resources */,
 				92E5D4761B0491F2005A4D0D /* Images.xcassets in Resources */,
 			);
@@ -351,10 +426,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E5D46E1B0491F2005A4D0D /* AppDelegate.m in Sources */,
+				92573AA91B04D7F20004875F /* PWPushAnimator.m in Sources */,
 				9237A0971B0498CD00C27B1D /* PWWSManager.m in Sources */,
+				92573AA81B04D7F20004875F /* PWPopAnimator.m in Sources */,
 				92E5D46B1B0491F2005A4D0D /* main.m in Sources */,
-				92573A8B1B04B3CC0004875F /* PWViewController.m in Sources */,
 				92573A911B04C2780004875F /* PWDataManager.m in Sources */,
+				92E8DCD61B054C1C00B6DE81 /* PWLoginViewController.m in Sources */,
+				92573AA31B04D7B60004875F /* PWNavigationControllerDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,8 +440,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9240FC391B055F8D00D65265 /* PWLoginViewControllerSpec.m in Sources */,
 				9237A0921B04986500C27B1D /* PWWSManagerSpec.m in Sources */,
 				92573A931B04C29C0004875F /* PWDataManagerSpec.m in Sources */,
+				92E8DCDD1B05546F00B6DE81 /* MainStoryboardSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,7 +566,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "IOSTrelloDemo/IOSTrelloDemo-Prefix.pch";
 				INFOPLIST_FILE = IOSTrelloDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -499,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "IOSTrelloDemo/IOSTrelloDemo-Prefix.pch";
 				INFOPLIST_FILE = IOSTrelloDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -514,6 +594,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_PREFIX_HEADER = "IOSTrelloDemoTests/IOSTrelloDemoTests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -534,6 +615,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
+				GCC_PREFIX_HEADER = "IOSTrelloDemoTests/IOSTrelloDemoTests-Prefix.pch";
 				INFOPLIST_FILE = IOSTrelloDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

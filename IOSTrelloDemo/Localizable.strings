@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  IOSTrelloDemo
+
+  Created by Pawel Weglewski on 15/05/15.
+  Copyright (c) 2015 Pawel Weglewski. All rights reserved.
+*/
+"Login" = "Login";
+"loginInfoText" = "Please provie Your Trello login information";
+"loginPlaceholder" = "Username";
+"passwordPlaceholder" = "Password";
+"OK" = "OK";
+"errorTitle" = "Something Went Wrong";
+"loginErrorMessage" = "Logging in to Trello Failed. Please try again";

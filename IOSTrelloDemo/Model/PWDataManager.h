@@ -13,4 +13,7 @@
 @property (nonatomic, copy) NSString *token;
 
 + (instancetype)sharedInstance;
+
+- (void)login:(NSString *)username password:(NSString *)password;
+
 @end

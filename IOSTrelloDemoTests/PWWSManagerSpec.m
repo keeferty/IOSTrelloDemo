@@ -17,14 +17,6 @@ SpecBegin(PWWSManager)
 
 describe(@"PWWSManager", ^{
     
-    beforeAll(^{
-
-    });
-    
-    beforeEach(^{
-
-    });
-    
     it(@"Check if it is not nill", ^{
         expect([PWWSManager sharedInstance]).notTo.beNil();
     });
@@ -33,12 +25,9 @@ describe(@"PWWSManager", ^{
         PWWSManager *manager = [PWWSManager sharedInstance];
         expect(manager).to.equal([PWWSManager sharedInstance]);
     });
-    afterEach(^{
-
-    });
     
-    afterAll(^{
-
+    it(@"has a login api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(login:password:completionBlock:failureBlock:));
     });
 });
 

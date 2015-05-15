@@ -16,14 +16,6 @@ SpecBegin(PWDataManager)
 
 describe(@"PWDataManager", ^{
     
-    beforeAll(^{
-
-    });
-    
-    beforeEach(^{
-
-    });
-    
     it(@"Check if it is not nill", ^{
         expect([PWDataManager sharedInstance]).notTo.beNil();
     });
@@ -33,13 +25,10 @@ describe(@"PWDataManager", ^{
         expect(manager).to.equal([PWDataManager sharedInstance]);
     });
     
-    afterEach(^{
-
+    it(@"has a login api call proxy implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(login:password:));
     });
-    
-    afterAll(^{
 
-    });
 });
 
 SpecEnd

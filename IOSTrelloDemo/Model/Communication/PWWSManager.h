@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@class AF2OAuth1Token;
+
 @interface PWWSManager : NSObject
 
 + (instancetype)sharedInstance;
 
-- (void)login:(NSString *)username password:(NSString *)password;
+- (void)login:(NSString *)username
+     password:(NSString *)password
+completionBlock:(void(^)(NSString *accessToken))completionBlock
+ failureBlock:(void(^)(NSError *error))failureBlock;
 
 @end

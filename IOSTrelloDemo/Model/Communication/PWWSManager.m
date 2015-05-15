@@ -76,7 +76,10 @@
 }
 #pragma mark - API Calls
 
-- (void)login:(NSString *)username password:(NSString *)password
+- (void)login:(NSString *)username
+     password:(NSString *)password
+completionBlock:(void(^)(NSString *accessToken))completionBlock
+ failureBlock:(void(^)(NSError *error))failureBlock
 {
     [self.authClient authorizeUsingOAuthWithRequestTokenPath:LOGIN_REQUEST
                                        userAuthorizationPath:LOGIN_AUTHORIZE
@@ -85,9 +88,13 @@
                                                 accessMethod:@"POST"
                                                        scope:nil
                                                      success:^(AF2OAuth1Token *accessToken, id responseObject) {
-                                                         [[PWDataManager sharedInstance]setToken:accessToken.key];
+                                                         if (completionBlock) {
+                                                             completionBlock(accessToken.key);
+                                                         }
                                                      } failure:^(NSError *error) {
-                                                         CLS_LOG(@"fail");
+                                                         if (failureBlock) {
+                                                             failureBlock(error);
+                                                         }
                                                      }];
 }
 @end

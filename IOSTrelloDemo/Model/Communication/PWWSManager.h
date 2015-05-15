@@ -12,6 +12,8 @@
 
 @interface PWWSManager : NSObject
 
+@property (nonatomic, strong) NSOperationQueue *defaultQueue;
+
 + (instancetype)sharedInstance;
 
 

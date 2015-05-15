@@ -41,6 +41,10 @@ describe(@"PWDataManager", ^{
         expect([PWDataManager sharedInstance]).to.respondTo(@selector(getListCards:));
     });
     
+    it(@"has a get whole board proxy implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(getWholeBoard));
+    });
+    
 });
 
 SpecEnd

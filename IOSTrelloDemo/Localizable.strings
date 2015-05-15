@@ -19,3 +19,11 @@
 "Doing" = "Doing";
 "Done" = "Done";
 "getListCardsErrorMessage" = "Could not get cards for one of the lists. Please try a different Account";
+"Loading..." = "Loading...";
+"New Item" = "New Item";
+"Drag me" = "Drag me";
+"Lock" = "Lock";
+"Unock" = "Unock";
+"Name" = "Name";
+"Desctiption" = "Description";
+"Save" = "Save";

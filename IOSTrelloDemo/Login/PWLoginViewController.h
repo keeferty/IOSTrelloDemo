@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PWLoginViewController : UIViewController
+@interface PWLoginViewController : UIViewController <UITextFieldDelegate>
 
 @end

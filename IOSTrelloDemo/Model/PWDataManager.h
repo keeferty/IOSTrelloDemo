@@ -23,5 +23,6 @@
 - (void)getOpenBoards;
 - (void)getBoardLists;
 - (void)getListCards:(PWList *)list;
+- (void)getWholeBoard;
 
 @end

@@ -34,6 +34,10 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    __weak PWLoginViewController *weakSelf = self;
+    [[RACObserve([PWDataManager sharedInstance], loggedIn) skip:1] subscribeNext:^(NSString *newName) {
+        [weakSelf goHome];
+    }];
     [self localize];
 }
 
@@ -70,7 +74,7 @@
     [self.loginButton setTitle:LocString(@"Login") forState:UIControlStateNormal];
 }
 
--(void) keyboardWillShow:(NSNotification *)note{
+- (void) keyboardWillShow:(NSNotification *)note{
     CGRect keyboardBounds;
     [[note.userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
@@ -87,7 +91,7 @@
     [UIView commitAnimations];
 }
 
--(void) keyboardWillHide:(NSNotification *)note{
+- (void) keyboardWillHide:(NSNotification *)note{
     NSNumber *duration = [note.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [note.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     [UIView beginAnimations:nil context:NULL];
@@ -120,6 +124,15 @@
     } else {
         self.loginButton.enabled = NO;
         [self.loginButton setBackgroundColor:[UIColor lightGrayColor]];
+    }
+    return YES;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (self.loginField.text.length && self.passwordField.text.length) {
+        self.loginButton.enabled = YES;
+        [self.loginButton setBackgroundColor:[UIColor blueColor]];
     }
     return YES;
 }

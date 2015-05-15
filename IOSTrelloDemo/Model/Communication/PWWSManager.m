@@ -27,7 +27,6 @@
 
 @interface PWWSManager ()
 
-@property (nonatomic, strong) NSOperationQueue *defaultQueue;
 @property (nonatomic, strong) AF2OAuth1Client *authClient;
 @property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
 
@@ -66,7 +65,7 @@
 {
     if (!_defaultQueue) {
         _defaultQueue = [NSOperationQueue new];
-        [_defaultQueue setMaxConcurrentOperationCount:3];
+        [_defaultQueue setMaxConcurrentOperationCount:1];
     }
     return _defaultQueue;
 }

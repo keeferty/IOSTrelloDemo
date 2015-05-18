@@ -15,7 +15,19 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa.h>
 
+#endif
+
+#define TRELLO_KEY @"ddd2a253bdf0e9151434bdcf15b0b03f"
+#define TRELLO_SECRET @"d8bce8ac0852942c4c897e660d9431160f9cebeffe1fe2e36250895276b607e2"
+
+#define ApplicationDelegate ((AppDelegate*)[UIApplication sharedApplication].delegate)
+#define IS_IPAD() (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define LocString(key)	NSLocalizedString(key, @"")
+
+#ifdef DEBUG
+#define CLS_LOG(__FORMAT__, ...) NSLog((@"%s line %d $ " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #endif
 
 #endif

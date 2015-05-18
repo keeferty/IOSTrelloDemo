@@ -209,8 +209,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.passThruCard = [[self dataForCollectionView:collectionView] objectAtIndex:indexPath.item];
-    [self performSegueWithIdentifier:@"showDetail" sender:self];
+    if (collectionView != self.sourceCollection) {
+        self.passThruCard = [[self dataForCollectionView:collectionView] objectAtIndex:indexPath.item];
+        [self performSegueWithIdentifier:@"showDetail" sender:self];
+    }
 }
 
 #pragma mark - I3DragDataSource

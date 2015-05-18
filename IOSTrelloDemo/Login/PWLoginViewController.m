@@ -67,7 +67,6 @@
 
 - (void)localize
 {
-    self.navigationItem.title = LocString(@"Login");
     self.loginInfoLabel.text = LocString(@"loginInfoText");
     self.loginField.placeholder = LocString(@"loginPlaceholder");
     self.passwordField.placeholder = LocString(@"passwordPlaceholder");

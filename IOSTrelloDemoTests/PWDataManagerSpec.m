@@ -25,6 +25,14 @@ describe(@"PWDataManager", ^{
         expect(manager).to.equal([PWDataManager sharedInstance]);
     });
     
+    it(@"has a save data implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(save));
+    });
+    
+    it(@"has a reload for stacked operations implementation", ^{
+        expect([PWDataManager sharedInstance]).to.respondTo(@selector(reloadStackedOperations));
+    });
+    
     it(@"has a login api call proxy implementation", ^{
         expect([PWDataManager sharedInstance]).to.respondTo(@selector(login:password:));
     });

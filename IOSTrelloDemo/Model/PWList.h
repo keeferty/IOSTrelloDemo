@@ -7,11 +7,12 @@
 //
 
 #import "JSONModel.h"
+#import "PWCard.h"
 
 @interface PWList : JSONModel
 
 @property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray <Optional> *cards;
+@property (nonatomic, strong) NSMutableArray <Optional, PWCard> *cards;
 
 @end

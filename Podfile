@@ -9,7 +9,7 @@ pod 'JSONModel', '~> 1.1'
 pod 'ReactiveCocoa'
 pod 'JGProgressHUD', '~> 1.2.2'
 pod 'BetweenKit', '~> 2.0'
-
+pod 'Reachability', '~> 3.2'
 end
 
 target 'IOSTrelloDemoTests' do

@@ -17,10 +17,10 @@
                                                        }];
 }
 
-- (NSMutableArray<Optional> *)cards
+- (NSMutableArray<Ignore,PWCard> *)cards
 {
     if (!_cards) {
-        _cards = [NSMutableArray new];
+        _cards = (NSMutableArray<Ignore,PWCard> *)[NSMutableArray new];
     }
     return _cards;
 }

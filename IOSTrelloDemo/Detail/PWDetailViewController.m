@@ -100,6 +100,7 @@
 {
     self.card.name = self.nameField.text;
     self.card.desc = self.descriptionTextView.text;
+    [self.card save];
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

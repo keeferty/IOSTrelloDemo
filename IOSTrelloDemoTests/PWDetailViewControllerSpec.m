@@ -34,6 +34,10 @@ describe(@"PWDetailViewController", ^{
         expect(detailCtrl).to.beKindOf([PWDetailViewController class]);
     });
     
+    it(@"does it subclass PWViewController", ^{
+        expect([detailCtrl class]).to.beSubclassOf([PWViewController class]);
+    });
+
     afterEach(^{
         detailCtrl = nil;
     });

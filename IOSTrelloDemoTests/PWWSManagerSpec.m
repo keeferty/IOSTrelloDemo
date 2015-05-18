@@ -42,6 +42,18 @@ describe(@"PWWSManager", ^{
         expect([PWWSManager sharedInstance]).to.respondTo(@selector(getListCards:completionBlock:failureBlock:));
     });
     
+    it(@"has a delete cards api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(deleteCard:completionBlock:failureBlock:));
+    });
+    
+    it(@"has a modify cards api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(modifyCard:completionBlock:failureBlock:));
+    });
+    
+    it(@"has a create cards api call implementation", ^{
+        expect([PWWSManager sharedInstance]).to.respondTo(@selector(createCard:completionBlock:failureBlock:));
+    });
+    
 });
 
 SpecEnd

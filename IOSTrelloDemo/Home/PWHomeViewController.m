@@ -19,8 +19,11 @@
 @interface PWHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, I3DragDataSource>
 @property (nonatomic, strong) JGProgressHUD *hud;
 @property (weak, nonatomic) IBOutlet UICollectionView *leftCollection;
+@property (strong, nonatomic) UIRefreshControl *leftRefreshControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *middleCollection;
+@property (strong, nonatomic) UIRefreshControl *middleRefreshControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *rightCollection;
+@property (strong, nonatomic) UIRefreshControl *rightRefreshControl;
 @property (weak, nonatomic) IBOutlet UICollectionView *sourceCollection;
 
 @property (nonatomic, strong) I3GestureCoordinator *dragCoordinator;
@@ -39,8 +42,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[PWDataManager sharedInstance] getWholeBoard];
-    [self.hud showInView:self.view];
+    self.leftRefreshControl = [self refreshControlForCollection:self.leftCollection];
+    self.middleRefreshControl = [self refreshControlForCollection:self.middleCollection];
+    self.rightRefreshControl = [self refreshControlForCollection:self.rightCollection];
+    if ([PWDataManager sharedInstance].board == nil) {
+        [[PWDataManager sharedInstance] getWholeBoard];
+        [self.hud showInView:self.view];
+        [self.hud dismissAfterDelay:10 animated:YES];
+    }
+    if ([PWDataManager sharedInstance].stack.count) {
+        [[PWDataManager sharedInstance] reloadStackedOperations];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -49,9 +61,20 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:LocString(@"Lock") style:UIBarButtonItemStylePlain target:self action:@selector(lockList)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     __weak PWHomeViewController *weakSelf = self;
-    [[RACObserve([PWDataManager sharedInstance], board.updated) skip:1] subscribeNext:^(id x) {
+    [[RACObserve([PWDataManager sharedInstance], board.updated) skip:[PWDataManager sharedInstance].board?0:4] subscribeNext:^(id x) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.hud dismiss];
+            if (weakSelf.hud.isVisible) {
+                [weakSelf.hud dismiss];
+            }
+            if (weakSelf.leftRefreshControl.isRefreshing) {
+                [weakSelf.leftRefreshControl endRefreshing];
+            }
+            if (weakSelf.middleRefreshControl.isRefreshing) {
+                [weakSelf.middleRefreshControl endRefreshing];
+            }
+            if (weakSelf.rightRefreshControl.isRefreshing) {
+                [weakSelf.rightRefreshControl endRefreshing];
+            }
             [self reloadCollections];
         });
     }];
@@ -83,6 +106,27 @@
     [self.rightCollection reloadData];
 }
 
+- (UIRefreshControl *)refreshControlForCollection:(UICollectionView *)collection
+{
+    UIRefreshControl *tmpControl = [UIRefreshControl new];
+    [tmpControl addTarget:self action:@selector(updateCollection:) forControlEvents:UIControlEventValueChanged];
+    [collection addSubview:tmpControl];
+    return tmpControl;
+}
+
+- (void)updateCollection:(UIRefreshControl *)control
+{
+    PWList *list = nil;
+    if (control == self.leftRefreshControl) {
+        list = [PWDataManager sharedInstance].board.toDoList;
+    }else if (control == self.middleRefreshControl) {
+        list = [PWDataManager sharedInstance].board.doingList;
+    }else {
+        list = [PWDataManager sharedInstance].board.doneList;
+    }
+    [[PWDataManager sharedInstance] getListCards:list];
+}
+
 - (NSMutableArray *)dataForCollectionView:(UIView *)collectionView{
     
     NSMutableArray *data = nil;
@@ -99,10 +143,24 @@
         PWCard *card = [PWCard new];
         card.name = LocString(@"New Item");
         card.desc = LocString(@"Drag me");
+        card.operationType = CardOperationTypeRedy;
         data = [@[card]mutableCopy];
     }
-    
     return data;
+}
+
+- (NSString *)idListForCollectionView:(UIView *)collectionView{
+    
+    if(collectionView == self.leftCollection){
+        return [PWDataManager sharedInstance].board.toDoList.identifier;
+    }
+    else if(collectionView == self.middleCollection){
+        return [PWDataManager sharedInstance].board.doingList.identifier;
+    }
+    else if(collectionView == self.rightCollection){
+        return [PWDataManager sharedInstance].board.doneList.identifier;
+    }
+    return nil;
 }
 
 - (BOOL) isPointInDeletionArea:(CGPoint) point fromView:(UIView *)view{
@@ -210,6 +268,8 @@
 {
     if (collection != self.sourceCollection) {
         NSMutableArray *fromData = [self dataForCollectionView:collection];
+        PWCard *deletedCard = [fromData objectAtIndex:at.row];
+        [deletedCard remove];
         [fromData removeObjectAtIndex:at.row];
         [collection deleteItemsAtIndexPaths:@[at]];
     }else {
@@ -233,12 +293,17 @@
     NSMutableArray *toData = [self dataForCollectionView:toCollection];
     
     PWCard *exchangingCard = [fromData objectAtIndex:fromIndex.row];
+    exchangingCard.idList = [self idListForCollectionView:toCollection];
     
     [fromData removeObjectAtIndex:fromIndex.row];
     [toData insertObject:exchangingCard atIndex:toIndex.row];
     
+    
     if (fromCollection != self.sourceCollection) {
         [fromCollection deleteItemsAtIndexPaths:@[fromIndex]];
+        [exchangingCard save];
+    }else {
+        [exchangingCard create];
     }
     [toCollection insertItemsAtIndexPaths:@[toIndex]];
 }

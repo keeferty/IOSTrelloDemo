@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <AF2OAuth1Client.h>
 #import <JSONModel.h>
+#import "PWDataManager.h"
+
+
 @interface AppDelegate ()
 
 @end
@@ -22,10 +25,6 @@
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor], NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:24]}];
     
-    
-    JSONKeyMapper *mapper = [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
-    [JSONModel setGlobalKeyMapper:mapper];
-
     return YES;
 }
 
@@ -37,4 +36,10 @@
     return YES;
 }
 
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[PWDataManager sharedInstance] save];
+    });
+}
 @end

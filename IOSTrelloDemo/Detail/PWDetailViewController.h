@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pawel Weglewski. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PWViewController.h"
 #import "PWCard.h"
 
-@interface PWDetailViewController : UIViewController
+@interface PWDetailViewController : PWViewController
 @property (weak, nonatomic) PWCard *card;
 @end

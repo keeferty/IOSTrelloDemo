@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Pawel Weglewski. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PWViewController.h"
 
-@interface PWLoginViewController : UIViewController <UITextFieldDelegate>
+@interface PWLoginViewController : PWViewController <UITextFieldDelegate>
 
 @end

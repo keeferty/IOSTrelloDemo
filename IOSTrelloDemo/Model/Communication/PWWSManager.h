@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AF2OAuth1Token;
+@class AF2OAuth1Token, PWCard;
 
 @interface PWWSManager : NSObject
 
@@ -32,4 +32,17 @@ completionBlock:(void(^)(NSString *accessToken))completionBlock
 - (void)getListCards:(NSString *)listId
      completionBlock:(void(^)(id responseObject))completionBlock
         failureBlock:(void(^)(NSError *error))failureBlock;
+
+- (void)deleteCard:(PWCard *)card
+   completionBlock:(void(^)(id responseObject))completionBlock
+      failureBlock:(void(^)(NSError *error))failureBlock;
+
+- (void)modifyCard:(PWCard *)card
+   completionBlock:(void(^)(id responseObject))completionBlock
+      failureBlock:(void(^)(NSError *error))failureBlock;
+
+- (void)createCard:(PWCard *)card
+   completionBlock:(void(^)(id responseObject))completionBlock
+      failureBlock:(void(^)(NSError *error))failureBlock;
+
 @end

@@ -28,7 +28,11 @@ describe(@"PWLoginViewController", ^{
     
     it(@"does it exist when instantiated via storyboard ID", ^{
         expect(loginCtrl).notTo.beNil();
-    });  
+    });
+    
+    it(@"does it subclass PWViewController", ^{
+        expect([loginCtrl class]).to.beSubclassOf([PWViewController class]);
+    });
     
     afterEach(^{
         loginCtrl = nil;

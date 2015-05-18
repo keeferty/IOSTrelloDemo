@@ -26,13 +26,14 @@
                 sharedManager = [PWDataManager new];
                 sharedManager.token = nil;
                 sharedManager.board = nil;
+                sharedManager.stack = (NSMutableArray<PWCard> *)[NSMutableArray new];
             });
         }
     }
     return sharedManager;
 }
 
-#pragma mark - NSKeyedArchiver saving
+#pragma mark - Data Manager internal functionality
 
 - (void)save
 {
@@ -41,6 +42,24 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+
+- (void)setOffline:(BOOL)offline
+{
+    _offline = offline;
+    if (!offline) {
+        [self reloadStackedOperations];
+    }
+}
+
+- (void)reloadStackedOperations
+{
+    __weak PWDataManager *weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf.stack enumerateObjectsUsingBlock:^(PWCard *card, NSUInteger idx, BOOL *stop) {
+            [card restart];
+        }];
+    });
+}
 #pragma mark - data gathering proxy methods
 
 - (void)login:(NSString *)username password:(NSString *)password
@@ -122,18 +141,23 @@
     [[PWWSManager sharedInstance] getListCards:list.identifier
                                completionBlock:^(id responseObject) {
                                    if ([responseObject isKindOfClass:[NSArray class]]) {
+                                       list.cards = nil;
                                        [responseObject enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                                            if ([obj isKindOfClass:[NSDictionary class]]) {
                                                NSError *error;
                                                PWCard *card = [[PWCard alloc]initWithDictionary:obj error:&error];
+                                               card.operationType = CardOperationTypeRedy;
                                                if ((error == nil) && (card != nil)) {
                                                    [weakList.cards addObject:card];
                                                }
                                            }
                                        }];
+                                       weakSelf.board.updated = [NSDate date];
                                    }
                                }
                                   failureBlock:^(NSError *error) {
+                                      weakSelf.board.updated = [NSDate date];
+
                                       [weakSelf showAlert:LocString(@"errorTitle")
                                                   message:LocString(@"getListCardsErrorMessage")];
                                   }];
@@ -142,14 +166,12 @@
 - (void)getWholeBoard
 {
     __weak PWDataManager *weakSelf = self;
-    [[[RACObserve([PWWSManager sharedInstance], defaultQueue.operationCount) skip:1] filter:^BOOL(NSNumber *value) {
-        return value.integerValue == 0;
-    }] subscribeNext:^(id x) {
-        weakSelf.board.updated = [NSDate date];
+    [RACObserve(self, board.updated) subscribeNext:^(id x) {
         [weakSelf save];
     }];
     [self getOpenBoards];
 }
+
 #pragma mark - Helper Stuff
 
 - (void)showAlert:(NSString *)title message:(NSString *)message

@@ -34,6 +34,10 @@ describe(@"PWHomeViewController", ^{
         expect(homeCtrl).to.beKindOf([PWHomeViewController class]);
     });
     
+    it(@"does it subclass PWViewController", ^{
+        expect([homeCtrl class]).to.beSubclassOf([PWViewController class]);
+    });
+    
     afterEach(^{
         homeCtrl = nil;
     });

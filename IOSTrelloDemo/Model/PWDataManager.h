@@ -11,13 +11,19 @@
 #import "PWList.h"
 #import "PWCard.h"
 
-@interface PWDataManager : NSObject
+@interface PWDataManager : JSONModel
 
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, strong) PWBoard *board;
 @property (nonatomic) BOOL loggedIn;
+@property (nonatomic) BOOL offline;
+@property (strong, nonatomic) NSMutableArray <PWCard>*stack;
+
 
 + (instancetype)sharedInstance;
+- (void)save;
+- (void)reloadStackedOperations;
+
 
 - (void)login:(NSString *)username password:(NSString *)password;
 - (void)getOpenBoards;
